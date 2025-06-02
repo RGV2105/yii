@@ -33,14 +33,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'model' => $model,
                 'options' => ['class' => 'table table-bordered table-striped'],
                 'attributes' => [
-                    //'id',
+                    
                     'nombre',
                     'apellido',
                     'username',
                     'email:email',
-                    //'password_hash',
-                    //'auth_key',
-                    //'access_token',
+                    
                     [
                         'attribute' => 'role',
                         'value' => function($model) {

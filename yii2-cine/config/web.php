@@ -7,7 +7,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'name' => 'EvolMovie',
+    'name' => 'RB Movie',
 
     'aliases' => [
         '@bower' => '@vendor/bower-asset',

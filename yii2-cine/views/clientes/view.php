@@ -6,39 +6,57 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var app\models\Clientes $model */
 
-$this->title = $model->id_cliente;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Clientes'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '🎫 Cliente: ' . $model->nombre;
+$this->params['breadcrumbs'][] = ['label' => '🎬 Clientes', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $model->nombre;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="clientes-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="clientes-view container mt-4">
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id_cliente' => $model->id_cliente], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id_cliente' => $model->id_cliente], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+    <div class="card shadow border-0">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <h3 class="mb-0"><?= Html::encode($this->title) ?></h3>
+            <div>
+                <?= Html::a('✏️ Editar', ['update', 'id_cliente' => $model->id_cliente], ['class' => 'btn btn-warning btn-sm']) ?>
+                <?= Html::a('🗑️ Eliminar', ['delete', 'id_cliente' => $model->id_cliente], [
+                    'class' => 'btn btn-danger btn-sm',
+                    'data' => [
+                        'confirm' => '¿Estás seguro de que deseas eliminar este cliente?',
+                        'method' => 'post',
+                    ],
+                ]) ?>
+            </div>
+        </div>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            //'id_cliente',
-            'nombre',
-            'email:email',
-            'telefono',
-            [
-                'attribute' => 'fecha_registro',
-                'format' => ['date', 'php:Y-m-d'], // solo fecha
-            ],
+        <div class="card-body">
 
-        ],
-    ]) ?>
+            <?= DetailView::widget([
+                'model' => $model,
+                'options' => ['class' => 'table table-bordered table-striped'],
+                'attributes' => [
+                    [
+                        'attribute' => 'nombre',
+                        'label' => 'Nombre completo',
+                        'contentOptions' => ['style' => 'font-weight: bold; font-size: 1.1rem;'],
+                        
+                    ],
+                    'email:email',
+                    
+                    [
+                        'attribute' => 'telefono',
+                        'label' => 'Teléfono de contacto',
+                        'contentOptions' => ['class' => 'text-center'],
+                    ],
+                    [
+                        'attribute' => 'fecha_registro',
+                        'label' => 'Fecha de Registro',
+                        'format' => ['date', 'php:d-m-Y'],
+                        'contentOptions' => ['class' => 'text-center'],
+                    ],
+                ],
+            ]) ?>
 
+        </div>
+    </div>
 </div>

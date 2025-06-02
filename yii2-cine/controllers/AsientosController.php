@@ -7,6 +7,7 @@ use app\models\AsientosSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\controller\Yii;
 
 /**
  * AsientosController implements the CRUD actions for Asientos model.

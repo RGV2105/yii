@@ -6,41 +6,55 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var app\models\Salas $model */
 
-$this->title = $model->id_sala;
+$this->title = 'Sala: ' . $model->nombre;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Salas'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="salas-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="salas-view container mt-4">
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id_sala' => $model->id_sala], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id_sala' => $model->id_sala], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0"><i class="fas fa-video"></i> Detalle de Sala</h4>
+            <div>
+                <?= Html::a('<i class="fas fa-edit"></i> Editar', ['update', 'id_sala' => $model->id_sala], [
+                    'class' => 'btn btn-light btn-sm me-2'
+                ]) ?>
+                <?= Html::a('<i class="fas fa-trash"></i> Eliminar', ['delete', 'id_sala' => $model->id_sala], [
+                    'class' => 'btn btn-danger btn-sm',
+                    'data' => [
+                        'confirm' => Yii::t('app', '¿Estás seguro de eliminar esta sala?'),
+                        'method' => 'post',
+                    ],
+                ]) ?>
+            </div>
+        </div>
 
-   <?= DetailView::widget([
-    'model' => $model,
-    'attributes' => [
-        //'id_sala',
-        'nombre',
-        'capacidad',
-        'tipo_sala',
-        [
-            'attribute' => 'habilitada',
-            'value' => function ($model) {
-                return $model->habilitada ? 'Sí' : 'No';
-            },
-        ],
-    ],
-]) ?>
-
-
+        <div class="card-body">
+            <?= DetailView::widget([
+                'model' => $model,
+                'options' => ['class' => 'table table-bordered table-striped'],
+                'attributes' => [
+                    [
+                        'label' => 'Nombre de la Sala',
+                        'value' => $model->nombre,
+                    ],
+                    [
+                        'label' => 'Capacidad',
+                        'value' => $model->capacidad . ' personas',
+                    ],
+                    [
+                        'label' => 'Tipo de Sala',
+                        'value' => $model->tipo_sala,
+                    ],
+                    [
+                        'label' => 'Habilitada',
+                        'value' => $model->habilitada ? 'Sí' : 'No',
+                        'format' => 'html',
+                    ],
+                ],
+            ]) ?>
+        </div>
+    </div>
 </div>

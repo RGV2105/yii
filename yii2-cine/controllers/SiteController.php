@@ -66,6 +66,9 @@ class SiteController extends Controller
         // Versión con verificación de datos
         $query = Peliculas::find()->where(['not', ['portada' => null]]);
 
+        $ultimasPeliculas = Peliculas::find()->all();
+
+
         if ($query->count() == 0) {
             Yii::$app->session->setFlash('warning', 'No hay películas disponibles');
         }
@@ -82,6 +85,7 @@ class SiteController extends Controller
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'ultimasPeliculas' => $ultimasPeliculas,
         ]);
 
 
