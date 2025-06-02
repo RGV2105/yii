@@ -16,7 +16,7 @@ use yii\web\UploadedFile;
 /**
  * PeliculasController implements the CRUD actions for Peliculas model.
  */
-class PeliculasController extends Controller
+class PeliculasController extends BaseController
 {
 
     public function actionDetalles($id)

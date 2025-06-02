@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 /**
  * PagosController implements the CRUD actions for Pagos model.
  */
-class PagosController extends Controller
+class PagosController extends BaseController
 {
     /**
      * @inheritDoc

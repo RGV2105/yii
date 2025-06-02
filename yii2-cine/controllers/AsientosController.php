@@ -12,7 +12,7 @@ use app\controller\Yii;
 /**
  * AsientosController implements the CRUD actions for Asientos model.
  */
-class AsientosController extends Controller
+class AsientosController extends BaseController
 {
     /**
      * @inheritDoc

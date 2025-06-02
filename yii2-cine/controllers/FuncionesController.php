@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 /**
  * FuncionesController implements the CRUD actions for Funciones model.
  */
-class FuncionesController extends Controller
+class FuncionesController extends BaseController
 {
     /**
      * @inheritDoc

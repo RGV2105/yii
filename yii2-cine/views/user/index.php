@@ -45,29 +45,38 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'role',
                 'value' => function ($model) {
-                    return $model->role === 'admin' ? 'Administrador' : 'Usuario';
-                },
+                        return $model->role === 'admin' ? 'Administrador' : 'Usuario';
+                    },
                 'filter' => ['admin' => 'Administrador', 'user' => 'Usuario'],
             ],
             [
                 'attribute' => 'status',
                 'value' => function ($model) {
-                    return $model->status == 1 ? 'Activo' : 'Inactivo';
-                },
+                        return $model->status == 1 ? 'Activo' : 'Inactivo';
+                    },
                 'filter' => [1 => 'Activo', 0 => 'Inactivo'],
             ],
 
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, User $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                },
+                        return Url::toRoute([$action, 'id' => $model->id]);
+                    },
                 'header' => 'Acciones',
                 'contentOptions' => ['style' => 'min-width:100px; text-align:center;'],
             ],
         ],
+
     ]); ?>
 
+    <?php if (!Yii::$app->user->isGuest && Yii::$app->user->identity->isRoleAdmin()): ?>
+        <p>
+            <?= Html::a('Crear Película', ['create'], ['class' => 'btn btn-success']) ?>
+        </p>
+    <?php endif; ?>
+
+
     <?php Pjax::end(); ?>
+
 
 </div>

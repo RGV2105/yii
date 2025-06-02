@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 /**
  * SalasController implements the CRUD actions for Salas model.
  */
-class SalasController extends Controller
+class SalasController extends BaseController
 {
     /**
      * @inheritDoc

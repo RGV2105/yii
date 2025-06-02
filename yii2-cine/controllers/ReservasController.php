@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 /**
  * ReservasController implements the CRUD actions for Reservas model.
  */
-class ReservasController extends Controller
+class ReservasController extends BaseController
 {
     /**
      * @inheritDoc

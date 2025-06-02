@@ -12,7 +12,7 @@ use app\models\ContactForm;
 use app\models\Peliculas;
 use yii\data\ActiveDataProvider; // <-- Añade esto
 
-class SiteController extends Controller
+class SiteController extends BaseController
 {
     /**
      * {@inheritdoc}

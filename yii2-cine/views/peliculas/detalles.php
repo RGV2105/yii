@@ -92,13 +92,7 @@ use yii\widgets\ActiveForm;
 
             <!-- Botones de acción -->
             <div class="botones-reserva d-flex flex-column flex-md-row gap-2 mt-3">
-                <?= Html::a('<i class="fas fa-ticket-alt"></i> Soy Cliente - Reservar', ['reservas/create', 'id_pelicula' => $model->id_pelicula], [
-                    'class' => 'btn btn-success'
-                ]) ?>
-
-                <?= Html::a('<i class="fas fa-user-plus"></i> No Soy Cliente - Registrarme', ['clientes/create'], [
-                    'class' => 'btn btn-warning text-dark'
-                ]) ?>
+               
 
                 <?= Html::a('<i class="fas fa-home"></i> Volver al Inicio', ['site/index'], [
                     'class' => 'btn btn-secondary'
