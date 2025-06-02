@@ -93,7 +93,6 @@ use yii\widgets\ActiveForm;
             <!-- Botones de acción -->
             <div class="botones-reserva d-flex flex-column flex-md-row gap-2 mt-3">
                
-
                 <?= Html::a('<i class="fas fa-home"></i> Volver al Inicio', ['site/index'], [
                     'class' => 'btn btn-secondary'
                 ]) ?>

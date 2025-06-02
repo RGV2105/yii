@@ -19,7 +19,6 @@ class BaseController extends Controller
                     // Acciones restringidas solo para el rol admin
                     [
                         'allow' => true,
-                        'actions' => ['','','','detalles','index', 'view','create', 'update', 'delete'],
                         'roles' => ['@'],
                         'matchCallback' => function () {
                             return Yii::$app->user->identity && Yii::$app->user->identity->isRoleAdmin();
@@ -29,7 +28,7 @@ class BaseController extends Controller
                     // Acciones permitidas para cualquier usuario logueado
                     [
                         'allow' => true,
-                        'actions' => ['','','','','detalles','index', 'view'],
+                        'actions' => ['','','','contact','detalles','index' ],
                         'roles' => ['@'],
                     ],
                     

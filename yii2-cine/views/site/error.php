@@ -34,3 +34,11 @@ $this->title = $name;
         <?= Html::a('<i class="fas fa-home"></i> Volver al inicio', Yii::$app->homeUrl, ['class' => 'btn btn-outline-primary']) ?>
     </div>
 </div>
+
+<!-- Botones de acción -->
+<div class="botones-reserva d-flex flex-column flex-md-row gap-2 mt-3">
+
+    <?= Html::a('<i class="fas fa-home"></i> Volver al Inicio', ['site/index'], [
+        'class' => 'btn btn-secondary'
+    ]) ?>
+</div>

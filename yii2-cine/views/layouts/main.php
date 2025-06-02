@@ -70,6 +70,8 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     $menuItems = [
         ['label' => 'Inicio', 'url' => ['/site/index']],
         ['label' => 'Acerca de', 'url' => ['/site/about']],
+        ['label' => 'Contactanos', 'url' => ['/site/contact']],
+
     ];
 
     if (!Yii::$app->user->isGuest && Yii::$app->user->identity->isRoleAdmin()) {
@@ -142,3 +144,6 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 
 </html>
 <?php $this->endPage() ?>
+
+<!-- Incluye FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
